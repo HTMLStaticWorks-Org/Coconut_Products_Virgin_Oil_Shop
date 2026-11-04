@@ -4,52 +4,77 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
 // Theme Management
 const body = document.body;
-const savedTheme = localStorage.getItem('coconut-theme');
-if (savedTheme === 'dark') {
-  body.classList.add('dark');
+
+function applyTheme(isDark) {
+  body.classList.toggle('dark', isDark);
+  localStorage.setItem('coconut-theme', isDark ? 'dark' : 'light');
+  $$('.theme-toggle, #themeToggle').forEach((btn) => {
+    btn.setAttribute('aria-pressed', isDark);
+    btn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    const label = btn.querySelector('.theme-text');
+    if (label) {
+      label.textContent = isDark ? 'Light' : 'Theme';
+    }
+  });
 }
 
-$('#themeToggle')?.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  const isDark = body.classList.contains('dark');
-  localStorage.setItem('coconut-theme', isDark ? 'dark' : 'light');
+const savedTheme = localStorage.getItem('coconut-theme');
+if (savedTheme === 'dark') {
+  applyTheme(true);
+} else {
+  applyTheme(false);
+}
+
+$$('.theme-toggle, #themeToggle').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isDark = !body.classList.contains('dark');
+    applyTheme(isDark);
+  });
 });
 
 // Direction (RTL / LTR) Management
-const rtlBtn = $('#rtlToggle');
-const savedDir = localStorage.getItem('coconut-dir');
-
 function setDirection(dir) {
   const isRtl = dir === 'rtl';
   document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
   document.body.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
-  if (rtlBtn) {
-    rtlBtn.textContent = isRtl ? 'LTR' : 'RTL';
-    rtlBtn.classList.toggle('active', isRtl);
-    rtlBtn.setAttribute('aria-pressed', isRtl);
-    rtlBtn.setAttribute('title', isRtl ? 'Switch to Left-to-Right (LTR)' : 'Switch to Right-to-Left (RTL)');
-  }
+  $$('.rtl-toggle').forEach((btn) => {
+    btn.classList.toggle('active', isRtl);
+    btn.setAttribute('aria-pressed', isRtl);
+    btn.setAttribute('title', isRtl ? 'Switch to Left-to-Right (LTR)' : 'Switch to Right-to-Left (RTL)');
+    const textSpan = btn.querySelector('.rtl-text');
+    if (textSpan) {
+      textSpan.textContent = isRtl ? 'LTR' : 'RTL';
+    } else {
+      btn.textContent = isRtl ? 'LTR' : 'RTL';
+    }
+  });
 }
 
+const savedDir = localStorage.getItem('coconut-dir');
 if (savedDir === 'rtl') {
   setDirection('rtl');
 } else {
   setDirection('ltr');
 }
 
-rtlBtn?.addEventListener('click', () => {
-  const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
-  const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
-  setDirection(newDir);
-  localStorage.setItem('coconut-dir', newDir);
+$$('.rtl-toggle').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const currentDir = document.documentElement.getAttribute('dir') || 'ltr';
+    const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+    setDirection(newDir);
+    localStorage.setItem('coconut-dir', newDir);
+  });
 });
 
 // Mobile Navigation
-$('#menuToggle')?.addEventListener('click', () => {
+$('#menuToggle')?.addEventListener('click', (e) => {
+  e.stopPropagation();
   $('#siteLinks')?.classList.toggle('open');
 });
 
-// Close mobile navigation when clicking outside
+// Close mobile navigation when clicking outside or clicking a nav link
 document.addEventListener('click', (e) => {
   const nav = $('#siteLinks');
   const btn = $('#menuToggle');
@@ -58,11 +83,17 @@ document.addEventListener('click', (e) => {
   }
 });
 
+$$('.links > a').forEach((link) => {
+  link.addEventListener('click', () => {
+    $('#siteLinks')?.classList.remove('open');
+  });
+});
+
 // Dynamic Active Link Highlight
 (function highlightActivePage() {
   const path = window.location.pathname.split('/').pop() || 'index.html';
   const cleanPath = path.split('?')[0].split('#')[0];
-  $$('.links a').forEach((a) => {
+  $$('.links > a:not(.btn):not(.drawer-cta)').forEach((a) => {
     const href = a.getAttribute('href');
     if (href === cleanPath || (cleanPath === '' && href === 'index.html')) {
       a.classList.add('active');

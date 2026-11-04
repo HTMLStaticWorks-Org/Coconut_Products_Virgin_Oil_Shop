@@ -165,4 +165,228 @@ RECIPES / USES PAGE
 CONTACT PAGE
 - A simple coconut grove or product arrangement background; keep the contact details readable.
 
+============================================================
+F. ACTIVE WEBSITE IMAGES & ASSET URL REGISTRY (UPDATED 2026)
+============================================================
+
+This section catalogs every active image asset used across all pages of the website,
+including exact file paths, direct online reference URLs, dimensions, and visual descriptions.
+
+1. Brand Logo Mark
+- Relative Path: assets/images/brand-mark.png
+- Dimensions: 491 × 493 px (PNG with transparency)
+- Direct Workspace URI: file:///assets/images/brand-mark.png
+- Placed on:
+  * All pages (Header navigation logo & Footer brand column)
+- Visual description: Custom green coconut emblem with an oil droplet motif and "Coconut & Co." branding.
+
+2. Hero Banner — Coconut Oil & Tropical Setting
+- Relative Path: assets/images/hero-coconut-oil.png
+- Dimensions: 1672 × 941 px (PNG RGB)
+- Direct Workspace URI: file:///assets/images/hero-coconut-oil.png
+- Placed on:
+  * index.html (Hero section background: "Pure Cold-Pressed Virgin Coconut Oil & Ingredients.")
+  * home-premium.html (Hero section background: "Finest Virgin Coconut Oil & Artisanal Products.")
+- Visual description: Wide atmospheric landscape banner with fresh coconuts, glass container of pure oil, palm fronds and warm morning sunlight.
+
+3. Virgin Coconut Oil — Glass Jar & Fresh Kernel
+- Relative Path: assets/images/virgin-coconut-oil.jpg
+- Dimensions: 767 × 1086 px (JPEG RGB)
+- Online Reference & Direct URL:
+  https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg
+- Source Page: https://www.pexels.com/photo/clear-glass-container-with-coconut-oil-725998/ (Photographer: Daniela Elena Tentis)
+- Placed on:
+  * index.html (Product Card: "Virgin Coconut Oil" under "Explore coconut essentials")
+  * products.html (Product Card: "Virgin Coconut Oil" under "Culinary")
+- Visual description: Pure crystal-clear coconut oil in a glass jar with fresh cracked coconut half and natural wooden spoon.
+
+4. Desiccated Coconut Powder
+- Relative Path: assets/images/coconut-powder.jpg
+- Dimensions: 753 × 781 px (JPEG RGB)
+- Direct Workspace URI: file:///assets/images/coconut-powder.jpg
+- Placed on:
+  * index.html (Product Card: "Desiccated Coconut" under "Explore coconut essentials")
+  * products.html (Product Card: "Desiccated Coconut" under "Ingredients")
+- Visual description: Fine, pure-white unsweetened desiccated coconut powder in a ceramic bowl with coconut halves.
+
+5. Crisp Coconut Flakes / Chips
+- Relative Path: assets/images/coconut-flakes.jpg
+- Dimensions: 825 × 630 px (JPEG RGB)
+- Direct Workspace URI: file:///assets/images/coconut-flakes.jpg
+- Placed on:
+  * index.html (Product Card: "Coconut Flakes" under "Explore coconut essentials")
+  * products.html (Product Card: "Coconut Flakes" under "Culinary")
+- Visual description: Crisp, lightly toasted and natural coconut chips/flakes arranged in an artisanal bowl.
+
+6. Bulk Virgin Coconut Oil — Bottled Format
+- Relative Path: assets/images/coconut-oil-bottle.jpg
+- Dimensions: 970 × 941 px (JPEG RGB)
+- Online Reference & Direct URL:
+  https://www.hornbillexport.com/coconut-oil-1.jpg
+- Placed on:
+  * index.html (Product Card: "Bulk Coconut Oil" under "Explore coconut essentials")
+  * home-premium.html (Split section: "Every stage deserves attention.")
+- Visual description: Pure golden-amber cold-pressed virgin coconut oil in a clear glass bottle with whole coconuts on a natural background.
+
+7. Coconut Plantation & Farm Harvest
+- Relative Path: assets/images/coconut-plantation-harvest.jpg
+- Dimensions: 1376 × 768 px (16:9 widescreen, JPEG RGB)
+- Reference Source Page: https://van.nongnghiepmoitruong.vn/planting-area-codes-unlock-export-opportunities-for-an-giang-coconuts-d776387.html
+- Reference Direct URL: https://i.ex-cdn.com/nongnghiepmoitruong.vn/files/content/2025/10/03/anh-3-110700_866-090657.jpg
+- Placed on:
+  * index.html (Split Section: "A clearer story behind every product." — From grove to finished product)
+  * sourcing.html (Split Section: "Know where your ingredients begin." — Responsible sourcing)
+- Visual description: Panoramic view of a lush sun-drenched organic coconut palm plantation with ripe coconut clusters in trees and freshly harvested coconuts in the foreground.
+
+8. Considered Sourcing — Palm Grove
+- Relative Path: assets/images/sourcing-plantation.jpg
+- Dimensions: 1376 × 768 px (JPEG RGB)
+- Placed on:
+  * index.html (Feature Card: "Considered sourcing" under "Nature offers more than one kind of goodness")
+- Visual description: Sunlit organic coastal coconut grove showcasing ethical raw material selection and tree-to-harvest stewardship.
+
+9. Careful Processing — Cold-Press Expeller Extraction
+- Relative Path: assets/images/cold-press-extraction.jpg
+- Dimensions: 1376 × 768 px (JPEG RGB)
+- Placed on:
+  * index.html (Feature Card: "Careful processing" under "Nature offers more than one kind of goodness")
+- Visual description: Modern stainless steel cold-press expeller screw pressing pure white grated coconut flakes with crystal-clear virgin coconut oil streaming into a clean vessel.
+
+10. Multiple Applications — Culinary, Wellness & Beauty
+- Relative Path: assets/images/coconut-applications.jpg
+- Dimensions: 1200 × 896 px (JPEG RGB)
+- Placed on:
+  * index.html (Feature Card: "Multiple applications" under "Nature offers more than one kind of goodness")
+- Visual description: Elegant wellness & lifestyle flatlay with culinary oil bowl, wooden spoon, cosmetic skincare amber dropper bottle, fresh coconut milk and fresh coconut halves.
+
+11. Whole-Coconut Thinking — Anatomy & By-Products
+- Relative Path: assets/images/whole-coconut-components.jpg
+- Dimensions: 1376 × 768 px (JPEG RGB)
+- Placed on:
+  * index.html (Feature Card: "Whole-coconut thinking" under "Nature offers more than one kind of goodness")
+  * sourcing.html (Section: "A whole-coconut approach")
+- Visual description: Complete zero-waste anatomy flatlay: brown mature coconut, green tender coconut, fresh white meat kernel, coir husk fibers, polished shell bowl, and a glass of fresh coconut water.
+
+12. Organic Coconut Flour
+- Relative Path: assets/images/coconut-flour.jpg
+- Dimensions: 1024 × 1024 px (1:1 square, JPEG RGB)
+- Placed on:
+  * products.html (Product Card: "Coconut Flour" under "Ingredients")
+- Visual description: Ultra-fine organic white coconut flour in a minimalist matte ceramic bowl with wooden scoop and fresh cracked coconut half on clean linen.
+
+13. Handcrafted Coconut Shell Bowls
+- Relative Path: assets/images/coconut-shell-bowls.jpg
+- Dimensions: 1200 × 896 px (JPEG RGB)
+- Placed on:
+  * products.html (Product Card: "Coconut Shell Products" under "Eco & by-products")
+- Visual description: Handcrafted, smooth polished natural coconut shell bowls on a warm textured travertine stone surface with coconut fiber and palm shadows.
+
+14. Coco Peat & Coir Fiber
+- Relative Path: assets/images/coco-peat-coir.jpg
+- Dimensions: 1200 × 896 px (JPEG RGB)
+- Placed on:
+  * products.html (Product Card: "Coco Peat & Coir" under "Eco & by-products")
+- Visual description: Compressed horticultural coco peat growing block, raw golden coconut coir fibers, coconut husk, and a vibrant green sprout.
+
+15. Activated Coconut Charcoal
+- Relative Path: assets/images/activated-coconut-charcoal.jpg
+- Dimensions: 1024 × 1024 px (1:1 square, JPEG RGB)
+- Placed on:
+  * products.html (Product Card: "Activated Coconut Charcoal" under "Eco & by-products")
+- Visual description: Ultra-fine jet-black activated coconut charcoal powder in a minimalist ceramic bowl beside raw carbonized coconut shell chunks.
+
+16. Coconut Skin & Hair Care Oil
+- Relative Path: assets/images/coconut-hair-skin-oil.jpg
+- Dimensions: 1200 × 896 px (JPEG RGB)
+- Placed on:
+  * products.html (Product Card: "Coconut Skin & Hair Oil" under "Personal care")
+- Visual description: Luxury cosmetic glass dropper bottle filled with pure virgin oil, oil droplets, fresh coconut slice and fragrant white plumeria flower.
+
+17. Quality & Laboratory Testing Facility
+- Relative Path: assets/images/coconut-quality-lab.jpg
+- Dimensions: 1376 × 768 px (16:9 widescreen, JPEG RGB)
+- Placed on:
+  * quality-lab.html (Split Section: "Document what matters — Quality-minded operations")
+- Visual description: Modern analytical testing laboratory setup with borosilicate beakers of pure coconut oil, graduated cylinder, test tubes, and a precision pipette dispensing a clear oil droplet.
+
+18. Complete Product Range Assortment
+- Relative Path: assets/images/coconut-products-flatlay.png
+- Dimensions: 1448 × 1086 px (PNG RGB)
+- Online Reference & Direct URL:
+  https://npa.soundestlink.com/image/newsletter/62348314523cf7001b5c275b
+- Placed on:
+  * Product catalogue overview and archival reference gallery
+- Visual description: Comprehensive flatlay assortment of coconut oil bottles, coconut powder in bowl, flakes, and whole coconut halves on rustic background.
+
+============================================================
+G. PAGE-BY-PAGE UNIQUE IMAGE MAPPING TABLE
+============================================================
+
+1. HOMEPAGE (index.html)
+------------------------------------------------------------
+• Header Logo: assets/images/brand-mark.png
+  Heading / Alt: "Coconut & Co. Brand Mark"
+• Hero Background: assets/images/hero-coconut-oil.png
+  Heading: "Pure Cold-Pressed Virgin Coconut Oil & Ingredients."
+• Feature Card 1: assets/images/sourcing-plantation.jpg
+  Heading: "Considered sourcing" (Raw material selection and farm origin)
+• Feature Card 2: assets/images/cold-press-extraction.jpg
+  Heading: "Careful processing" (Cold-pressing, purity, and hygienic standards)
+• Feature Card 3: assets/images/coconut-applications.jpg
+  Heading: "Multiple applications" (Culinary, personal care, and wellness uses)
+• Feature Card 4: assets/images/whole-coconut-components.jpg
+  Heading: "Whole-coconut thinking" (Zero-waste: flesh, shell, husk, and water)
+• Product Card 1: assets/images/virgin-coconut-oil.jpg
+  Heading: "Virgin Coconut Oil" (Culinary & personal care)
+• Product Card 2: assets/images/coconut-powder.jpg
+  Heading: "Desiccated Coconut" (Ingredients for baking and cooking)
+• Product Card 3: assets/images/coconut-flakes.jpg
+  Heading: "Coconut Flakes" (Toasted and natural snack/toppings)
+• Product Card 4: assets/images/coconut-oil-bottle.jpg
+  Heading: "Bulk Coconut Oil" (Commercial supply & wholesale)
+• Split Story Section: assets/images/coconut-plantation-harvest.jpg
+  Heading: "A clearer story behind every product." (From grove to finished product)
+• Footer Logo: assets/images/brand-mark.png
+  Heading / Alt: "Coconut & Co. Brand Mark"
+
+2. PRODUCTS CATALOGUE (products.html)
+------------------------------------------------------------
+• Product 1 (Culinary): assets/images/virgin-coconut-oil.jpg
+  Heading: "Virgin Coconut Oil"
+• Product 2 (Ingredients): assets/images/coconut-powder.jpg
+  Heading: "Desiccated Coconut"
+• Product 3 (Culinary): assets/images/coconut-flakes.jpg
+  Heading: "Coconut Flakes"
+• Product 4 (Ingredients): assets/images/coconut-flour.jpg
+  Heading: "Coconut Flour" [UPDATED: Dedicated fine flour image]
+• Product 5 (Personal Care): assets/images/coconut-hair-skin-oil.jpg
+  Heading: "Coconut Skin & Hair Oil" [UPDATED: Dedicated luxury dropper bottle]
+• Product 6 (Eco & by-products): assets/images/coconut-shell-bowls.jpg
+  Heading: "Coconut Shell Products" [UPDATED: Dedicated polished shell bowls]
+• Product 7 (Eco & by-products): assets/images/coco-peat-coir.jpg
+  Heading: "Coco Peat & Coir" [UPDATED: Dedicated horticulture peat & coir]
+• Product 8 (Eco & by-products): assets/images/activated-coconut-charcoal.jpg
+  Heading: "Activated Coconut Charcoal" [UPDATED: Dedicated jet-black charcoal]
+
+3. SOURCING STORY (sourcing.html)
+------------------------------------------------------------
+• Split Section: assets/images/coconut-plantation-harvest.jpg
+  Heading: "Responsible sourcing — Know where your ingredients begin."
+• Whole-Coconut Section: assets/images/whole-coconut-components.jpg
+  Heading: "A whole-coconut approach — Making use of more than the kernel"
+
+4. QUALITY & LAB (quality-lab.html)
+------------------------------------------------------------
+• Split Section: assets/images/coconut-quality-lab.jpg
+  Heading: "Quality-minded operations — Document what matters."
+
+5. PREMIUM HOMEPAGE (home-premium.html)
+------------------------------------------------------------
+• Hero Background: assets/images/hero-coconut-oil.png
+  Heading: "Finest Virgin Coconut Oil & Artisanal Products."
+• Process Split Section: assets/images/coconut-oil-bottle.jpg
+  Heading: "Every stage deserves attention."
+
+============================================================
 END OF FILE
+============================================================
