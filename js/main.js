@@ -91,13 +91,41 @@ $$('.links > a').forEach((link) => {
 
 // Dynamic Active Link Highlight
 (function highlightActivePage() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const cleanPath = path.split('?')[0].split('#')[0];
-  $$('.links > a:not(.btn):not(.drawer-cta)').forEach((a) => {
-    const href = a.getAttribute('href');
-    if (href === cleanPath || (cleanPath === '' && href === 'index.html')) {
+  let rawPath = '';
+  try {
+    rawPath = decodeURIComponent(window.location.pathname.split('/').pop() || 'index.html');
+  } catch (e) {
+    rawPath = window.location.pathname.split('/').pop() || 'index.html';
+  }
+  let cleanPath = rawPath.split('?')[0].split('#')[0].toLowerCase();
+  if (!cleanPath || cleanPath === '' || cleanPath === 'home-premium.html') {
+    cleanPath = 'index.html';
+  }
+
+  // Handle standard navigation links
+  const regularLinks = $$('.links > a:not(.btn):not(.drawer-cta)');
+  let hasMatch = false;
+  regularLinks.forEach((a) => {
+    const href = (a.getAttribute('href') || '').split('?')[0].split('#')[0].toLowerCase();
+    const isCurrent = href === cleanPath;
+    if (isCurrent) {
       a.classList.add('active');
+      hasMatch = true;
+    } else {
+      a.classList.remove('active');
     }
+  });
+
+  // If on index or root and no link matched, default to Home
+  if (!hasMatch && (cleanPath === 'index.html' || cleanPath === '')) {
+    const homeLink = $('.links > a[href="index.html"]');
+    if (homeLink) homeLink.classList.add('active');
+  }
+
+  // Handle Bulk Enquiry button state
+  const isEnquiryPage = cleanPath === 'bulk-enquiry.html';
+  $$('.drawer-cta, .nav-actions .btn[href="bulk-enquiry.html"]').forEach((btn) => {
+    btn.classList.toggle('active', isEnquiryPage);
   });
 })();
 
