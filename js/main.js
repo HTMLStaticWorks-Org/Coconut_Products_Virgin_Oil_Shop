@@ -98,7 +98,7 @@ $$('.links > a').forEach((link) => {
     rawPath = window.location.pathname.split('/').pop() || 'index.html';
   }
   let cleanPath = rawPath.split('?')[0].split('#')[0].toLowerCase();
-  if (!cleanPath || cleanPath === '' || cleanPath === 'home-premium.html') {
+  if (!cleanPath || cleanPath === '') {
     cleanPath = 'index.html';
   }
 
@@ -195,3 +195,34 @@ const params = new URLSearchParams(location.search);
 if ($('#productInterest') && params.get('product')) {
   $('#productInterest').value = params.get('product');
 }
+
+// Move to Top Floating Button Handler
+const scrollTopBtn = $('#scrollTopBtn');
+if (scrollTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 280) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// FAQ Accordion Handler (Contact Page & Site)
+$$('.faq-item').forEach((item) => {
+  const trigger = item.querySelector('.faq-question');
+  trigger?.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    item.parentElement.querySelectorAll('.faq-item').forEach((other) => {
+      if (other !== item) other.classList.remove('open');
+    });
+    item.classList.toggle('open', !isOpen);
+  });
+});
