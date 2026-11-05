@@ -197,23 +197,42 @@ if ($('#productInterest') && params.get('product')) {
 }
 
 // Move to Top Floating Button Handler
-const scrollTopBtn = $('#scrollTopBtn');
-if (scrollTopBtn) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 280) {
+function initScrollTop() {
+  const scrollTopBtn = $('#scrollTopBtn') || $('.scroll-top');
+  if (!scrollTopBtn || scrollTopBtn.dataset.bound === 'true') return;
+  scrollTopBtn.dataset.bound = 'true';
+
+  const getScrollOffset = () =>
+    window.pageYOffset ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop ||
+    0;
+
+  const updateScrollTopVisibility = () => {
+    if (getScrollOffset() > 220) {
       scrollTopBtn.classList.add('visible');
     } else {
       scrollTopBtn.classList.remove('visible');
     }
-  }, { passive: true });
+  };
 
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+  window.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
+  document.addEventListener('scroll', updateScrollTopVisibility, { passive: true });
+  updateScrollTopVisibility();
+
+  scrollTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollTo?.({ top: 0, behavior: 'smooth' });
+    document.body.scrollTo?.({ top: 0, behavior: 'smooth' });
   });
 }
+
+initScrollTop();
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollTop);
+}
+window.addEventListener('load', initScrollTop);
 
 // FAQ Accordion Handler (Contact Page & Site)
 $$('.faq-item').forEach((item) => {

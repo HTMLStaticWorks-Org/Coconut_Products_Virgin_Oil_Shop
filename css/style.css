@@ -1622,8 +1622,10 @@ body.dark .newsletter-success {
 
   .hero-ctas .btn,
   .btn-pair .btn {
+    flex: 0 0 auto !important;
     width: 100% !important;
     max-width: 100% !important;
+    height: 46px;
   }
 
   .hero-content {
@@ -3048,12 +3050,12 @@ body.dark .map-info-pane h3 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 990;
+  z-index: 1050;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transform: translateY(16px);
-  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .scroll-top:hover {
@@ -4129,27 +4131,77 @@ body.dark .tier-specs-list li {
   margin: 0 auto 28px auto;
 }
 
-.concierge-buttons-group {
+.concierge-buttons-group,
+.concierge-buttons-group.btn-pair {
   display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 536px;
+  margin: 0 auto;
 }
 
-.concierge-buttons-group .btn {
-  flex: 1 1 200px;
-  min-width: 200px;
-  height: 48px;
+.concierge-buttons-group .btn,
+.concierge-buttons-group.btn-pair .btn {
+  flex: 1 1 0 !important;
+  width: calc(50% - 8px) !important;
+  max-width: 260px !important;
+  min-width: 215px !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-  .concierge-buttons-group {
-    flex-direction: column;
-    align-items: stretch;
+.concierge-buttons-group .btn.gold,
+.premium-hero-ctas .btn.gold {
+  border: 1.5px solid var(--gold);
+}
+
+.concierge-buttons-group .btn.outline,
+.premium-hero-ctas .btn.outline {
+  background: rgba(197, 155, 39, 0.06);
+  color: #eed699 !important;
+  border: 1.5px solid rgba(197, 155, 39, 0.55) !important;
+}
+
+.concierge-buttons-group .btn.outline:hover,
+.premium-hero-ctas .btn.outline:hover {
+  background: var(--gold) !important;
+  color: #0b1710 !important;
+  border-color: var(--gold) !important;
+}
+
+@media (max-width: 560px) {
+  .concierge-buttons-group,
+  .concierge-buttons-group.btn-pair {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    max-width: 360px;
+    gap: 12px;
   }
-  .concierge-buttons-group .btn {
+  .concierge-buttons-group .btn,
+  .concierge-buttons-group.btn-pair .btn {
+    flex: 0 0 auto !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
   }
 }
 
@@ -5015,6 +5067,13 @@ body.dark .page-hero.h4,
 .page-hero.h4 {
   background-image: url('../assets/images/h4.jpg') !important;
   background-position: center 45% !important;
+}
+
+body .page-hero.h5,
+body.dark .page-hero.h5,
+.page-hero.h5 {
+  background-image: url('../assets/images/bulk.jpg') !important;
+  background-position: center 50% !important;
 }
 
 /* Responsive Scaling for Photo Heroes */
