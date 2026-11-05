@@ -4437,3 +4437,316 @@ body.dark .lab-flow-box p {
     gap: 8px;
   }
 }
+
+
+/* ============================================================
+   UNIFIED HERO SYSTEM (single full-bleed hero on desktop,
+   two stacked sections on tablet/mobile) - same height everywhere
+   ============================================================ */
+:root {
+  --hero-h: clamp(480px, calc(100dvh - 72px), 640px);
+}
+
+/* ---------- Home (index) hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--hero-h);
+  padding: 0;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero-split {
+  display: block;
+  width: 100%;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 48%;
+  padding: 56px 0;
+}
+
+.hero .hero-visual-pane {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 54%;
+  display: block;
+}
+
+.hero .hero-image-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+}
+
+.hero .hero-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #FDFBF7 0%, rgba(253, 251, 247, 0) 36%);
+}
+
+body.dark .hero .hero-image-wrap::after {
+  background: linear-gradient(90deg, #0D1A14 0%, rgba(13, 26, 20, 0) 36%);
+}
+
+.hero .hero-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.hero .hero-image-badge {
+  z-index: 3;
+  left: auto;
+  right: 24px;
+  bottom: 24px;
+}
+
+[dir="rtl"] .hero .hero-visual-pane { right: auto; left: 0; }
+[dir="rtl"] .hero .hero-image-wrap::after { transform: scaleX(-1); }
+[dir="rtl"] .hero .hero-image-badge { right: auto; left: 24px; }
+
+/* ---------- Premium (home 2) hero ---------- */
+.premium-hero-dark {
+  display: flex;
+  align-items: center;
+  min-height: var(--hero-h);
+  padding: 56px 0;
+  background:
+    linear-gradient(90deg, rgba(5, 13, 9, 0.95) 0%, rgba(5, 13, 9, 0.84) 48%, rgba(5, 13, 9, 0.42) 100%),
+    url('../assets/images/home2hero.jpg') center / cover no-repeat;
+}
+
+.premium-hero-grid {
+  display: block;
+}
+
+.premium-hero-grid > div:first-child {
+  max-width: 640px;
+}
+
+.premium-hero-photo {
+  display: none;
+}
+
+.premium-dossier-band {
+  background: #07150e;
+  padding: 52px 0 56px;
+  border-bottom: 1px solid rgba(197, 155, 39, 0.25);
+}
+
+.premium-dossier-band .reserve-card-showcase {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  column-gap: 26px;
+  align-items: start;
+}
+
+.premium-dossier-band .reserve-showcase-header { grid-column: 1 / -1; }
+.premium-dossier-band .reserve-visual-frame { grid-column: 1; grid-row: 2 / span 2; margin-bottom: 0; height: 100%; min-height: 220px; aspect-ratio: auto; }
+.premium-dossier-band .reserve-quick-specs-grid { grid-column: 2; grid-row: 2; }
+.premium-dossier-band .reserve-assurance-footer { grid-column: 2; grid-row: 3; align-self: end; }
+
+/* ---------- Inner page hero: same height as home heroes ---------- */
+.page-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--hero-h);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 85% 20%, rgba(197, 155, 39, 0.14) 0%, transparent 46%),
+              radial-gradient(circle at 12% 85%, rgba(27, 67, 50, 0.10) 0%, transparent 42%);
+}
+
+.page-hero .container {
+  position: relative;
+  width: min(900px, calc(100% - 40px));
+}
+
+.page-hero h1 {
+  font-size: clamp(32px, 4.4vw, 52px);
+}
+
+.page-hero p {
+  font-size: clamp(14.5px, 1.3vw, 16.5px);
+  line-height: 1.7;
+}
+
+/* ---------- Stacked (tablet & mobile): text section, then image section ---------- */
+@media (max-width: 1000px) {
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .hero-split {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero .hero-content {
+    max-width: 100%;
+    padding: 36px 0 26px;
+  }
+
+  .hero .hero-visual-pane {
+    position: relative;
+    width: 100%;
+    inset: auto;
+    padding-bottom: 36px;
+  }
+
+  .hero .hero-image-wrap {
+    position: relative;
+    inset: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(197, 155, 39, 0.32);
+    box-shadow: 0 14px 36px rgba(13, 33, 23, 0.14);
+    overflow: hidden;
+  }
+
+  .hero .hero-image-wrap::after { display: none; }
+
+  .hero .hero-img {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 420px;
+    object-position: center;
+  }
+
+  .hero .hero-image-badge,
+  [dir="rtl"] .hero .hero-image-badge {
+    left: 14px;
+    right: auto;
+    bottom: 14px;
+  }
+
+  .hero .hero-ctas {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  .hero .hero-ctas .btn {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 48px;
+    padding: 0 14px;
+  }
+
+  /* Premium hero stacks: solid dark text section, then photo section */
+  .premium-hero-dark {
+    display: block;
+    min-height: 0;
+    padding: 36px 0 0;
+    background: radial-gradient(circle at 75% 20%, #1d432e 0%, #0c2016 60%, #050d09 100%);
+  }
+
+  .premium-hero-grid > div:first-child {
+    max-width: 100%;
+  }
+
+  .premium-hero-photo {
+    display: block;
+    margin-top: 28px;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: clamp(210px, 46vw, 340px);
+    overflow: hidden;
+    border-top: 1px solid rgba(197, 155, 39, 0.3);
+  }
+
+  .premium-hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .premium-hero-ctas.btn-pair {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .premium-hero-ctas.btn-pair .btn {
+    flex: 1 1 0 !important;
+    max-width: none !important;
+    width: auto !important;
+  }
+
+  .premium-dossier-band .reserve-card-showcase {
+    display: block;
+    max-width: 560px;
+  }
+
+  .premium-dossier-band .reserve-visual-frame {
+    height: auto;
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+    margin-bottom: 12px;
+  }
+
+  /* Inner page heroes: compact on small screens */
+  .page-hero {
+    min-height: 280px;
+    padding: 44px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .hero-ctas,
+  .premium-hero-ctas.btn-pair {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero .hero-ctas .btn,
+  .premium-hero-ctas.btn-pair .btn {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    height: 46px;
+  }
+
+  .hero .hero-img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .premium-hero-photo {
+    margin-left: -11px;
+    margin-right: -11px;
+  }
+
+  .page-hero {
+    min-height: 240px;
+    padding: 36px 0;
+  }
+}
