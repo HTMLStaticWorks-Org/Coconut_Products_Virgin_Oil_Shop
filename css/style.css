@@ -4532,20 +4532,149 @@ body.dark .hero .hero-image-wrap::after {
   min-height: var(--hero-h);
   padding: 56px 0;
   background:
-    linear-gradient(90deg, rgba(5, 13, 9, 0.95) 0%, rgba(5, 13, 9, 0.84) 48%, rgba(5, 13, 9, 0.42) 100%),
+    linear-gradient(90deg, rgba(5, 13, 9, 0.94) 0%, rgba(5, 13, 9, 0.86) 48%, rgba(5, 13, 9, 0.68) 100%),
     url('../assets/images/home2hero.jpg') center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
 }
 
 .premium-hero-grid {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: center;
+  width: 100%;
 }
 
 .premium-hero-grid > div:first-child {
-  max-width: 640px;
+  max-width: 600px;
 }
 
-.premium-hero-photo {
-  display: none;
+/* Luxury Duo Photo Showcase: hom11 (Image 1) and hom12 (Image 2) */
+.premium-hero-showcase {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: clamp(380px, 46vh, 460px);
+  margin-left: auto;
+}
+
+.hero-showcase-frame {
+  position: absolute;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #0b1e15;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+/* Image 1 (hom11): Top-left landscape frame */
+.hero-showcase-frame.frame-primary {
+  top: 8px;
+  left: 0;
+  width: clamp(230px, 24vw, 310px);
+  aspect-ratio: 4 / 3;
+  border: 2px solid rgba(197, 155, 39, 0.55);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Image 2 (hom12): Bottom-right portrait frame overlapping Image 1 */
+.hero-showcase-frame.frame-secondary {
+  bottom: 8px;
+  right: 0;
+  width: clamp(200px, 21vw, 275px);
+  aspect-ratio: 3 / 4;
+  border: 2.5px solid rgba(238, 214, 153, 0.85);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.8), 0 8px 20px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.hero-showcase-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-showcase-frame:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.85), 0 0 24px rgba(197, 155, 39, 0.35);
+}
+
+.hero-showcase-frame:hover img {
+  transform: scale(1.05);
+}
+
+.hero-showcase-frame .frame-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(8, 20, 13, 0.86);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.hero-showcase-frame .frame-tag.gold {
+  background: rgba(22, 17, 6, 0.9);
+  color: #eed699;
+  border-color: rgba(197, 155, 39, 0.65);
+}
+
+@media (max-width: 992px) {
+  .premium-hero-dark {
+    padding: 44px 0 52px;
+    min-height: auto;
+  }
+  .premium-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .premium-hero-grid > div:first-child {
+    max-width: 100%;
+  }
+  .premium-hero-showcase {
+    margin: 20px auto 0;
+    max-width: 440px;
+    height: clamp(340px, 48vw, 400px);
+  }
+  .hero-showcase-frame.frame-primary {
+    width: 60%;
+  }
+  .hero-showcase-frame.frame-secondary {
+    width: 54%;
+  }
+}
+
+@media (max-width: 560px) {
+  .premium-hero-showcase {
+    max-width: 320px;
+    height: 290px;
+    margin: 16px auto 0;
+  }
+  .hero-showcase-frame.frame-primary {
+    width: 62%;
+    border-radius: 14px;
+  }
+  .hero-showcase-frame.frame-secondary {
+    width: 56%;
+    border-radius: 14px;
+  }
+  .hero-showcase-frame .frame-tag {
+    font-size: 10px;
+    padding: 4px 9px;
+    bottom: 8px;
+    left: 8px;
+  }
 }
 
 .premium-dossier-band {
@@ -4794,17 +4923,19 @@ body.dark .hero .hero-image-wrap::after {
 
 /* ============================================================
    INNER PAGE HERO BACKGROUND IMAGES (h1, h2, h3, h4)
+   Visible & vibrant in both Light and Dark modes with supreme contrast
    ============================================================ */
 body .page-hero.has-photo,
 body.dark .page-hero.has-photo {
-  background-color: #0c2016;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: transparent !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
   border-bottom: 1px solid rgba(197, 155, 39, 0.35);
   position: relative;
   overflow: hidden;
 }
 
+/* Semi-transparent scrim: lets the photo shine through brightly while preserving high contrast */
 body .page-hero.has-photo::before,
 body.dark .page-hero.has-photo::before {
   content: '';
@@ -4812,21 +4943,22 @@ body.dark .page-hero.has-photo::before {
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 18, 12, 0.72) 0%,
-    rgba(6, 18, 12, 0.58) 50%,
-    rgba(6, 18, 12, 0.78) 100%
-  );
+    rgba(6, 18, 12, 0.44) 0%,
+    rgba(6, 18, 12, 0.28) 45%,
+    rgba(6, 18, 12, 0.50) 100%
+  ) !important;
   pointer-events: none;
   z-index: 1;
 }
 
+/* Dark mode: keep scrim luminous so photos h1, h2, h3, h4 are clearly visible */
 body.dark .page-hero.has-photo::before {
   background: linear-gradient(
     180deg,
-    rgba(3, 10, 7, 0.80) 0%,
-    rgba(3, 10, 7, 0.66) 50%,
-    rgba(3, 10, 7, 0.86) 100%
-  );
+    rgba(3, 10, 7, 0.46) 0%,
+    rgba(3, 10, 7, 0.30) 45%,
+    rgba(3, 10, 7, 0.52) 100%
+  ) !important;
 }
 
 .page-hero.has-photo .container {
@@ -4838,13 +4970,13 @@ body.dark .page-hero.has-photo::before {
 .page-hero.has-photo h1,
 body.dark .page-hero.has-photo h1 {
   color: #ffffff !important;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75), 0 1px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
 }
 
 .page-hero.has-photo p,
 body.dark .page-hero.has-photo p {
-  color: #eaf1ec !important;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65);
+  color: #f2f7f4 !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85) !important;
 }
 
 .page-hero.has-photo .eyebrow,
@@ -4853,32 +4985,36 @@ body.dark .page-hero.has-photo .eyebrow {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9) !important;
 }
 
-/* Specific background images: h1, h2, h3, h4 */
-.page-hero.h1,
-.page-hero.hero-h1 {
-  background-image: url('../assets/images/h1.jpg');
-  background-position: center 65%;
+/* Specific background images: h1, h2, h3, h4 with maximum specificity */
+body .page-hero.h1,
+body.dark .page-hero.h1,
+.page-hero.h1 {
+  background-image: url('../assets/images/h1.jpg') !important;
+  background-position: center 65% !important;
 }
 
-.page-hero.h2,
-.page-hero.hero-h2 {
-  background-image: url('../assets/images/h2.jpg');
-  background-position: center 50%;
+body .page-hero.h2,
+body.dark .page-hero.h2,
+.page-hero.h2 {
+  background-image: url('../assets/images/h2.jpg') !important;
+  background-position: center 50% !important;
 }
 
-.page-hero.h3,
-.page-hero.hero-h3 {
-  background-image: url('../assets/images/h3.jpg');
-  background-position: center 55%;
+body .page-hero.h3,
+body.dark .page-hero.h3,
+.page-hero.h3 {
+  background-image: url('../assets/images/h3.jpg') !important;
+  background-position: center 55% !important;
 }
 
-.page-hero.h4,
-.page-hero.hero-h4 {
-  background-image: url('../assets/images/h4.jpg');
-  background-position: center 45%;
+body .page-hero.h4,
+body.dark .page-hero.h4,
+.page-hero.h4 {
+  background-image: url('../assets/images/h4.jpg') !important;
+  background-position: center 45% !important;
 }
 
 /* Responsive Scaling for Photo Heroes */
@@ -4891,13 +5027,14 @@ body.dark .page-hero.has-photo .eyebrow {
 }
 
 @media (max-width: 768px) {
-  body .page-hero.has-photo::before {
+  body .page-hero.has-photo::before,
+  body.dark .page-hero.has-photo::before {
     background: linear-gradient(
       180deg,
-      rgba(6, 18, 12, 0.80) 0%,
-      rgba(6, 18, 12, 0.68) 50%,
-      rgba(6, 18, 12, 0.84) 100%
-    );
+      rgba(6, 18, 12, 0.52) 0%,
+      rgba(6, 18, 12, 0.38) 45%,
+      rgba(6, 18, 12, 0.58) 100%
+    ) !important;
   }
 }
 
@@ -4907,4 +5044,22 @@ body.dark .page-hero.has-photo .eyebrow {
     min-height: clamp(300px, 45vh, 380px);
     padding: 42px 0;
   }
+}
+
+/* RTL Support for Premium Hero Showcase */
+[dir="rtl"] .premium-hero-showcase {
+  margin-left: 0;
+  margin-right: auto;
+}
+[dir="rtl"] .hero-showcase-frame.frame-primary {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .hero-showcase-frame.frame-secondary {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .hero-showcase-frame .frame-tag {
+  left: auto;
+  right: 12px;
 }
