@@ -1268,16 +1268,8 @@ body.dark .newsletter-success {
   }
 }
 
-@media (max-width: 768px) {
-  header {
-    position: sticky;
-    top: 0;
-    background: var(--cream);
-  }
-  body.dark header {
-    background: #0D1A14;
-  }
-
+/* Hamburger navigation: 300px - 1100px */
+@media (max-width: 1100px) {
   .nav {
     height: 68px;
     display: flex;
@@ -1576,6 +1568,18 @@ body.dark .newsletter-success {
     box-shadow: 0 0 0 3px var(--gold), 0 6px 18px rgba(197, 155, 39, 0.55);
     outline: 2px solid var(--gold);
   }
+}
+
+@media (max-width: 768px) {
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--cream);
+  }
+  body.dark header {
+    background: #0D1A14;
+  }
+
 
     .hero {
     min-height: auto;
@@ -4749,4 +4753,40 @@ body.dark .hero .hero-image-wrap::after {
     min-height: 240px;
     padding: 36px 0;
   }
+}
+
+
+/* Contact page facility buttons - tidy, equal width, normal height */
+.facility-actions.btn-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.facility-actions.btn-pair .btn {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  height: 46px;
+  padding: 0 14px;
+  font-size: 13.5px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .facility-actions.btn-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Safety: stacked button pairs must never stretch vertically */
+.btn-pair .btn {
+  align-self: auto;
 }
