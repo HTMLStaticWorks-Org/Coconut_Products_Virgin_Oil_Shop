@@ -164,7 +164,7 @@ function handleForm(form) {
     const data = new FormData(form);
     const subject = encodeURIComponent(form.dataset.subject || 'Website enquiry');
     const bodyText = encodeURIComponent([...data.entries()].map(([k, v]) => `${k}: ${v}`).join('\n'));
-    const email = form.dataset.email || 'hello@example.com';
+    const email = form.dataset.email || 'hello@coconutandco.in';
     $('#formStatus', form)?.classList.remove('hidden');
     window.location.href = `mailto:${email}?subject=${subject}&body=${bodyText}`;
   });
